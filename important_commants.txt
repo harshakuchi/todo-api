@@ -1,8 +1,0 @@
-access todo_db:
-sudo -u postgres psql -d todo_db
-
-to run: air
-to run migrate up: ./scripts/migrate.sh up
-to run migrate down: ./scripts/migrate.sh down
-to open postgres: sudo -u postgres psql
-
