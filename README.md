@@ -12,7 +12,6 @@ A RESTful Todo API built using Go, Gin, PostgreSQL, and JWT Authentication.
 * PostgreSQL database integration
 * Database migrations using golang-migrate
 * Hot reloading using Air
-* Clean project structure using repository pattern
 
 ---
 
