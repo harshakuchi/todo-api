@@ -46,7 +46,7 @@ Make sure the following are installed:
 ## Clone Repository
 
 ```bash
-git clone https://github.com/harshakuhchi/todo-api.git
+git clone https://github.com/harshakuchi/todo-api.git
 cd todo-api
 ```
 
