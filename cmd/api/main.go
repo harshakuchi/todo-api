@@ -1,3 +1,5 @@
+// checking if the changes will be pushed or not
+
 package main
 
 import (
@@ -7,6 +9,7 @@ import (
 	"todo-api/internal/handlers"
 	"todo-api/internal/middleware"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
@@ -32,6 +35,11 @@ func main() {
 	defer pool.Close() // defer keyword schedules the close method once the main function exists (closes connection pool for us)
 
 	var router *gin.Engine = gin.Default()
+	router.Use(cors.New(cors.Config{
+		AllowAllOrigins: true,
+		AllowMethods:    []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:    []string{"Origin", "Content-Type", "Authorization"},
+	}))
 	router.SetTrustedProxies(nil)
 	router.GET("/", func(c *gin.Context) {
 
