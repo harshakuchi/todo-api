@@ -1,5 +1,3 @@
-// checking if the changes will be pushed or not
-
 package main
 
 import (
