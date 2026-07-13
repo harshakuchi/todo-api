@@ -3,9 +3,9 @@
 set -e
 
 # Load .env file
-if [ -f .env ]; then
-  export $(grep -v '^#' .env | xargs)
-fi
+#if [ -f .env ]; then
+#  export $(grep -v '^#' .env | xargs)
+#fi
 
 COMMAND=$1
 NAME=$2

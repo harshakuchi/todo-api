@@ -30,6 +30,13 @@ func main() {
 		log.Fatal("Failed to connect to database: ", err)
 	}
 
+	// run migrations
+	err = database.RunMigrations(cfg.DatabaseURL)
+
+	if err != nil {
+		log.Fatal("Failed to run migrations: ", err)
+	}
+
 	defer pool.Close() // defer keyword schedules the close method once the main function exists (closes connection pool for us)
 
 	var router *gin.Engine = gin.Default()

@@ -8,6 +8,7 @@ package database
 import (
 	"context"
 	"log"
+	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
 )
@@ -38,10 +39,22 @@ func Connect(databaseURL string) (*pgxpool.Pool, error) {
 		return nil, err
 	}
 
-	err = pool.Ping(ctx)
+	const maxRetries = 10
+
+	for i := 1; i <= maxRetries; i++ {
+		err = pool.Ping(ctx)
+
+		if err == nil {
+			break
+		}
+
+		log.Printf("Database not ready (attempt %d/%d): %v", i, maxRetries, err)
+
+		time.Sleep(2 * time.Second)
+	}
 
 	if err != nil {
-		log.Printf("Unable to ping database : %v", err)
+		log.Printf("Could not connect after %d attempts", maxRetries)
 		pool.Close()
 		return nil, err
 	}
