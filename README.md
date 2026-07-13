@@ -2,6 +2,29 @@
 
 A RESTful Todo API built using Go, Gin, PostgreSQL, and JWT Authentication.
 
+## Latest Update
+
+* Dockerized the application using **Docker** and **Docker Compose**
+* Added containerized **PostgreSQL** for easy local development
+* Simplified project setup with a single `docker compose up --build` command
+* Improved the development workflow by eliminating the need for a local PostgreSQL installation when using Docker
+
+### Docker Commands
+
+Start the application:
+
+```bash
+docker compose up --build
+```
+
+Stop the application:
+
+```bash
+docker compose down
+```
+
+---
+
 ## Features
 
 * User Authentication with JWT
